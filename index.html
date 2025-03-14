@@ -3,196 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Social Media Hub</title>
+    <title>REDWASP DEVELOPER | Roblox Studio Expert</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="home">Home</button>
-            <button class="tab-btn" data-tab="portfolio">Portfolio</button>
-            <button class="tab-btn" data-tab="hire">Hire Me</button>
-            <button class="tab-btn" data-tab="about">About</button>
-            <button class="tab-btn" data-tab="content">Content</button>
-            <button class="tab-btn" data-tab="contact">Contact</button>
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="#home"><img src="redwasp-logo.png" alt="REDWASP Logo"></a>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">HOME</a>
+                <a href="#portfolio">PORTFOLIO</a>
+                <a href="#marketplace">MARKETPLACE</a>
+                <a href="#membership">MEMBERSHIP</a>
+                <a href="#blog">BLOG</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <div class="cart-icon">
+                <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </nav>
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="home">
-                <div class="embed-container">
-                    <!-- Replace with your main embed content -->
-                    <iframe src="https://www.youtube.com/embed/example" frameborder="0" allowfullscreen></iframe>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <img src="redwasp-logo.png" alt="REDWASP Logo" class="hero-logo">
+                </div>
+                <div class="hero-right">
+                    <h1>REDWASP <span class="highlight">DEVELOPER</span></h1>
+                    <div class="subtitle">SCRIPTER | UI DESIGNER | BUILDER | 3D MODELER</div>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="social-icon discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <div class="rating">
+                        <p>Rated 4.3/5 on TrustPilot</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="cta-button">Contact Me</a>
                 </div>
             </div>
+        </section>
 
-            <div class="tab-pane" id="portfolio">
-                <h2>Portfolio</h2>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <img src="portfolio1.jpg" alt="Portfolio Project">
-                        <div class="portfolio-overlay">
-                            <h3>E-commerce Website</h3>
-                            <p>Custom online store with payment integration</p>
-                            <a href="#" class="portfolio-link">View Project</a>
-                        </div>
+        <!-- Statistics Section -->
+        <section id="stats" class="stats-section">
+            <div class="stat-card">
+                <i class="fas fa-trophy"></i>
+                <h3>5 Years of Experience</h3>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>30+ Projects Completed Successfully</h3>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-heart"></i>
+                <h3>100% Client Satisfaction Rate</h3>
+            </div>
+        </section>
+
+        <!-- My Services Section -->
+        <section id="services" class="services-section">
+            <h2 class="section-title">MY SERVICE</h2>
+            
+            <div class="service-showcase">
+                <div class="service-code">
+                    <pre><code>
+local success, response = pcall(function()
+    return HttpService:GetAsync("https://api.example.com/playerData/" .. player.UserId)
+end)
+
+if not success then
+    console.log("Error fetching data for " .. player.Name .. ": " .. response)
+    return nil
+end
+
+local data = HttpService:JSONDecode(response)
+assert(data.score, "Score must exist in player data")
+assert(data.health, "Health must exist in player data")
+
+return data
+
+local function updatePlayerStats(player, data)
+    assert(player, "Player must not be nil")
+    assert(data, "Data must not be nil")
+    
+    if data then
+        player:SetAttribute("Score", data.score)
+        player:SetAttribute("Health", data.health)
+        DebugModule.log(player.Name .. " stats updated: Score = " .. data.score .. ", Health = " .. data.health)
+    end
+end
+
+local function onPlayerAdded(player)
+    local playerData = fetchPlayerData(player)
+    if playerData then
+        updatePlayerStats(player, playerData)
+    end
+end
+
+local function setupGame()
+    for _, player in ipairs(Players:GetPlayers()) do
+        onPlayerAdded(player)
+    end
+    
+    Players.PlayerAdded:Connect(onPlayerAdded)
+end
+
+local function main()
+    setupGame()
+end
+                    </code></pre>
+                </div>
+                <div class="service-info">
+                    <h2>SCRIPTING</h2>
+                    <p>I will write efficient, well-structured and organized codes that are easy to navigate through and fully configurable</p>
+                    <a href="#contact" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Offer Section -->
+        <section id="offer" class="offer-section">
+            <h2 class="section-title">MY OFFER</h2>
+            
+            <div class="offer-cards">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-medal"></i>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="portfolio2.jpg" alt="Portfolio Project">
-                        <div class="portfolio-overlay">
-                            <h3>Brand Campaign</h3>
-                            <p>Social media campaign for fashion brand</p>
-                            <a href="#" class="portfolio-link">View Project</a>
-                        </div>
+                    <h3>High Quality Work</h3>
+                    <p>I carefully implement every detail you provide, ensuring your vision is realized.</p>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-tag"></i>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="portfolio3.jpg" alt="Portfolio Project">
-                        <div class="portfolio-overlay">
-                            <h3>Mobile App UI</h3>
-                            <p>User interface design for fitness application</p>
-                            <a href="#" class="portfolio-link">View Project</a>
-                        </div>
+                    <h3>Flexible Pricing</h3>
+                    <p>My pricing is flexible, to suit your time and budget preferences.</p>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-gift"></i>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="portfolio4.jpg" alt="Portfolio Project">
-                        <div class="portfolio-overlay">
-                            <h3>Video Production</h3>
-                            <p>Commercial video for tech startup</p>
-                            <a href="#" class="portfolio-link">View Project</a>
+                    <h3>Satisfaction</h3>
+                    <p>I offer a 30-days guarantee for any bug fixes and minor adjustments after full payment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <h2 class="section-title">CHECK MY PORTFOLIO</h2>
+            <p>Take a look of my best visual projects</p>
+            
+            <a href="#portfolio-details" class="cta-button">Check Here</a>
+        </section>
+
+        <!-- Explore Portfolio Section -->
+        <section id="explore-portfolio" class="explore-portfolio">
+            <h2 class="section-title">EXPLORE MY PORTFOLIO</h2>
+            <p>Browse through a collection of impressive projects I've already created.</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="figure-ai.jpg" alt="Figure AI Project">
+                    <div class="portfolio-details">
+                        <div class="portfolio-tags">
+                            <span>SCRIPTING</span>
+                            <span>UI DESIGNING</span>
+                            <span>ANIMATING</span>
                         </div>
+                        <h3>Figure AI with Death Screen Showcase</h3>
+                        <p>Advanced and smart Figure AI inspired by the game Doors with a death screen</p>
+                        <p class="portfolio-meta">Commission for @way2shifty</p>
+                        <p class="portfolio-date">7/13/2024</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="circular-slider.jpg" alt="Circular Slider">
+                    <div class="portfolio-details">
+                        <div class="portfolio-tags">
+                            <span>UI DESIGNING</span>
+                            <span>SCRIPTING</span>
+                        </div>
+                        <h3>Circular Amount Selection Slider</h3>
+                        <p>Rounded UI slider used to indicate the amount in a circular manner!</p>
+                        <p class="portfolio-meta">Commission for Cameron</p>
+                        <p class="portfolio-date">7/5/2024</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="tab-pane" id="hire">
-                <h2>Hire Me</h2>
-                <div class="hire-content">
-                    <div class="services-card">
-                        <h3>Web Development</h3>
-                        <p>Custom websites built with modern technologies that are responsive and user-friendly.</p>
-                        <span class="price">Starting at $500</span>
-                        <button class="hire-btn">Request Quote</button>
+        <!-- Marketplace Section -->
+        <section id="marketplace" class="marketplace-section">
+            <h2 class="section-title">MARKETPLACE</h2>
+            
+            <div class="marketplace-grid">
+                <div class="marketplace-item">
+                    <div class="discount-badge">30% OFF</div>
+                    <img src="advanced-fisherman.jpg" alt="Advanced Fisherman Job System">
+                    <h3>Advanced Fisherman Job System</h3>
+                    <div class="price">
+                        <span class="original-price">$20.00</span>
+                        <span class="discounted-price">$13.99</span>
                     </div>
-                    <div class="services-card">
-                        <h3>Content Creation</h3>
-                        <p>High-quality videos, photos, and written content tailored to your brand.</p>
-                        <span class="price">Starting at $300</span>
-                        <button class="hire-btn">Request Quote</button>
+                </div>
+                
+                <div class="marketplace-item">
+                    <div class="discount-badge">50% OFF</div>
+                    <img src="camping-pack.jpg" alt="Camping Pack">
+                    <h3>Camping Pack</h3>
+                    <div class="price">
+                        <span class="original-price">$9.99</span>
+                        <span class="discounted-price">$4.99</span>
                     </div>
-                    <div class="services-card">
-                        <h3>Social Media Management</h3>
-                        <p>Strategic planning and management of your social media presence.</p>
-                        <span class="price">Starting at $250/month</span>
-                        <button class="hire-btn">Request Quote</button>
+                </div>
+                
+                <div class="marketplace-item">
+                    <div class="discount-badge">20% OFF</div>
+                    <img src="money-simulator.jpg" alt="Money Simulator Pack">
+                    <h3>Money Simulator Pack</h3>
+                    <div class="price">
+                        <span class="original-price">$9.99</span>
+                        <span class="discounted-price">$7.99</span>
                     </div>
                 </div>
             </div>
+            
+            <div class="add-to-cart">
+                <button class="cart-button">Add to cart</button>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="prev"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page active">1</a>
+                <a href="#" class="page">2</a>
+                <a href="#" class="page">3</a>
+                <a href="#" class="next"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </section>
 
-            <div class="tab-pane" id="about">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="profile-image.jpg" alt="Profile Picture">
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews-section">
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-icon">A</div>
+                    <div class="reviewer-info">
+                        <h4>Awesome Pye</h4>
+                        <p>Reviewed on April 17, 2024</p>
                     </div>
-                    <div class="about-text">
-                        <h3>Hello, I'm [Your Name]</h3>
-                        <p>I'm a passionate digital creator with over 5 years of experience in web development and content creation. My mission is to help businesses and individuals establish a strong online presence through creative and strategic digital solutions.</p>
-                        <p>My expertise includes web design, video production, social media strategy, and brand development. I believe in creating authentic connections through digital media.</p>
-                        <div class="skills">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Video Editing</span>
-                            <span class="skill-tag">Photography</span>
-                            <span class="skill-tag">Social Media</span>
+                </div>
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"He had helped us with our combat system and even tweaked it a little bit for us. Prec what he did and I will for sure hire him again in the future."</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-icon">CA</div>
+                    <div class="reviewer-info">
+                        <h4>Cameron</h4>
+                        <p>Reviewed on July 5, 2024</p>
+                    </div>
+                </div>
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Great to work with, definitely knows his stuff and very professional. Good speed and great communication. Would highly recommend him for any of your scripting needs."</p>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section">
+            <h2 class="section-title">ABOUT ME</h2>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="redwasp-character.png" alt="REDWASP Character">
+                </div>
+                <div class="about-text">
+                    <p>I am redwasp Roblox Studio developer with over 5 years of full-time experience since 2018, committed to delivering excellence in every project to exceed your expectations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="cta-section">
+            <h2 class="section-title">DON'T WASTE YOUR TIME!</h2>
+            <p>Stay Focused on your vision while I bring your Roblox game to life!</p>
+            <p>Remember, the game is your path to achievement, not the achievement itself!</p>
+            
+            <a href="#contact" class="cta-button">Hire me</a>
+            
+            <div class="clock">
+                <div class="clock-face">
+                    <div class="hour-hand"></div>
+                    <div class="minute-hand"></div>
+                    <div class="second-hand"></div>
+                    <div class="center-dot"></div>
+                </div>
+                <div class="time">10:00 PM</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="redwasp-logo.png" alt="REDWASP Logo">
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>NAVIGATE</h3>
+                        <ul>
+                            <li><a href="#home">HOME</a></li>
+                            <li><a href="#portfolio">PORTFOLIO</a></li>
+                            <li><a href="#marketplace">MARKETPLACE</a></li>
+                            <li><a href="#blog">BLOG</a></li>
+                            <li><a href="#about">ABOUT ME</a></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                            <li><a href="#membership">MEMBERSHIP</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>SERVICE</h3>
+                        <ul>
+                            <li><a href="#terms">TERMS & CONDITIONS</a></li>
+                            <li><a href="#service">TERMS & SERVICE</a></li>
+                            <li><a href="#cancel">CANCELATION POLICY</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>CONTACT</h3>
+                        <ul>
+                            <li><a href="#discord">DISCORD</a><span>redwasp.dev</span></li>
+                            <li><a href="#twitter">TWITTER</a><span>redwasp_dev</span></li>
+                            <li><a href="#email">EMAIL</a><span>contact@redwasp.dev</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>BECOME A MEMBER</h3>
+                        <p>Get notified about new products and posts plus gain access to special offers available only to members.</p>
+                        
+                        <div class="subscription-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
                         </div>
+                        
+                        <p class="subscription-note">Free of charge. No spam. Unsubscribe anytime.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="tab-pane" id="content">
-                <h2>Content</h2>
-                <div class="content-grid">
-                    <div class="content-item">
-                        <img src="content1.jpg" alt="Content Sample">
-                        <h3>Web Design Trends 2023</h3>
-                        <p>Exploring the latest trends in web design and how to implement them.</p>
-                        <a href="#" class="content-link">View Project</a>
-                    </div>
-                    <div class="content-item">
-                        <img src="content2.jpg" alt="Content Sample">
-                        <h3>Social Media Strategy Guide</h3>
-                        <p>A comprehensive guide to building an effective social media strategy.</p>
-                        <a href="#" class="content-link">Read Article</a>
-                    </div>
-                    <div class="content-item">
-                        <img src="content3.jpg" alt="Content Sample">
-                        <h3>Video Production Tips</h3>
-                        <p>Professional tips for creating engaging video content on a budget.</p>
-                        <a href="#" class="content-link">Watch Video</a>
-                    </div>
-                    <div class="content-item">
-                        <img src="content4.jpg" alt="Content Sample">
-                        <h3>Brand Development Case Study</h3>
-                        <p>How I helped a startup develop their brand identity from scratch.</p>
-                        <a href="#" class="content-link">View Case Study</a>
-                    </div>
-                </div>
+            
+            <div class="footer-bottom">
+                <p>Copyright © 2024-2025 by redwasp.dev</p>
             </div>
-
-            <div class="tab-pane" id="contact">
-                <h2>Contact Me</h2>
-                <div class="contact-content">
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" placeholder="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="Your Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" placeholder="Subject">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" placeholder="Your Message"></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <p>email@example.com</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <p>(123) 456-7890</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>City, Country</p>
-                        </div>
-                        <div class="availability">
-                            <h4>Availability</h4>
-                            <p>Currently available for freelance projects</p>
-                            <div class="status available">Available</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
         </footer>
     </div>
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
