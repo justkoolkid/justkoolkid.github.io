@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REDWASP DEVELOPER | Roblox Studio Expert</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -28,20 +34,68 @@
             </div>
         </nav>
 
-        <!-- Loading Animation -->
+        <!-- Advanced Loading Animation -->
         <div class="loader-container">
             <div class="loader">
-                <div class="loader-logo">
-                    <i data-lucide="bug" size="64"></i>
+                <div class="logo-animation-container">
+                    <svg id="animated-logo" viewBox="0 0 400 400" width="180" height="180">
+                        <path class="logo-path" d="M200,50 C 110,50 40,120 40,210 C 40,300 110,370 200,370 C 290,370 360,300 360,210 C 360,120 290,50 200,50 Z" fill="none" stroke="#e63b2e" stroke-width="8" stroke-linecap="round" />
+                        <path class="logo-path wasp-body" d="M200,130 C 160,130 130,160 130,200 C 130,240 160,270 200,270 C 240,270 270,240 270,200 C 270,160 240,130 200,130 Z" fill="none" stroke="#e63b2e" stroke-width="8" stroke-linecap="round" />
+                        <path class="logo-path wasp-wing" d="M150,180 C 130,150 90,140 60,160" fill="none" stroke="#e63b2e" stroke-width="8" stroke-linecap="round" />
+                        <path class="logo-path wasp-wing" d="M250,180 C 270,150 310,140 340,160" fill="none" stroke="#e63b2e" stroke-width="8" stroke-linecap="round" />
+                        <path class="logo-path wasp-stinger" d="M200,270 L 200,320" fill="none" stroke="#e63b2e" stroke-width="8" stroke-linecap="round" />
+                    </svg>
+                    <div class="logo-particles" id="logo-particles"></div>
                 </div>
-                <div class="loader-bar"></div>
-                <p>Loading awesomeness...</p>
+                <div class="loader-text">
+                    <h2 class="loading-title">REDWASP</h2>
+                    <div class="loading-subtitle">
+                        <span class="letter">D</span>
+                        <span class="letter">E</span>
+                        <span class="letter">V</span>
+                        <span class="letter">E</span>
+                        <span class="letter">L</span>
+                        <span class="letter">O</span>
+                        <span class="letter">P</span>
+                        <span class="letter">E</span>
+                        <span class="letter">R</span>
+                    </div>
+                </div>
+                <div class="loader-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span class="progress-percentage">0</span>%
+                    </div>
+                </div>
             </div>
         </div>
         
         <!-- Dynamic background elements -->
-        <div class="dynamic-bg-element" style="width: 400px; height: 400px; background: #e63b2e; top: 20%; left: 10%;"></div>
-        <div class="dynamic-bg-element" style="width: 350px; height: 350px; background: #3498db; bottom: 10%; right: 5%;"></div>
+        <!-- Particle system background -->
+        <div id="particles-js" class="particles-container"></div>
+        
+        <!-- Canvas for three.js interactive background -->
+        <canvas id="three-bg"></canvas>
+        
+        <!-- Animated gradient background -->
+        <div class="gradient-bg"></div>
+        
+        <!-- Background geometric shapes -->
+        <div class="bg-shape circle" style="width: 400px; height: 400px; top: 20%; left: 10%;"></div>
+        <div class="bg-shape square" style="width: 350px; height: 350px; bottom: 10%; right: 5%;"></div>
+        <div class="bg-shape triangle" style="top: 40%; right: 15%;"></div>
+        
+        <!-- Wave animation background -->
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <!-- Scanline effect overlay -->
+        <div class="glitch-overlay"></div>
         
         <!-- Hero Section -->
         <section id="home" class="hero-section animate-on-scroll" data-animation="fade-in">
@@ -206,32 +260,52 @@ end
             <p class="animate-on-scroll" data-animation="fade-in">Browse through a collection of impressive projects I've already created.</p>
             
             <div class="portfolio-grid staggered-cards">
-                <div class="portfolio-item staggered-card">
-                    <img src="figure-ai.jpg" alt="Figure AI Project">
-                    <div class="portfolio-details">
-                        <div class="portfolio-tags">
-                            <span>SCRIPTING</span>
-                            <span>UI DESIGNING</span>
-                            <span>ANIMATING</span>
+                <div class="portfolio-item staggered-card hover-3d">
+                    <div class="hover-3d-content">
+                        <div class="img-hover-zoom">
+                            <img src="figure-ai.jpg" alt="Figure AI Project">
                         </div>
-                        <h3>Figure AI with Death Screen Showcase</h3>
-                        <p>Advanced and smart Figure AI inspired by the game Doors with a death screen</p>
-                        <p class="portfolio-meta">Commission for @way2shifty</p>
-                        <p class="portfolio-date">7/13/2024</p>
+                        <div class="portfolio-details">
+                            <div class="portfolio-tags">
+                                <span class="text-reveal">
+                                    <span class="text-reveal-content">SCRIPTING</span>
+                                </span>
+                                <span class="text-reveal">
+                                    <span class="text-reveal-content">UI DESIGNING</span>
+                                </span>
+                                <span class="text-reveal">
+                                    <span class="text-reveal-content">ANIMATING</span>
+                                </span>
+                            </div>
+                            <h3 class="text-split">Figure AI with Death Screen Showcase</h3>
+                            <p>Advanced and smart Figure AI inspired by the game Doors with a death screen</p>
+                            <p class="portfolio-meta">Commission for @way2shifty</p>
+                            <p class="portfolio-date">7/13/2024</p>
+                        </div>
+                        <div class="hover-3d-shine"></div>
                     </div>
                 </div>
                 
-                <div class="portfolio-item staggered-card">
-                    <img src="circular-slider.jpg" alt="Circular Slider">
-                    <div class="portfolio-details">
-                        <div class="portfolio-tags">
-                            <span>UI DESIGNING</span>
-                            <span>SCRIPTING</span>
+                <div class="portfolio-item staggered-card hover-3d">
+                    <div class="hover-3d-content">
+                        <div class="img-hover-zoom">
+                            <img src="circular-slider.jpg" alt="Circular Slider">
                         </div>
-                        <h3>Circular Amount Selection Slider</h3>
-                        <p>Rounded UI slider used to indicate the amount in a circular manner!</p>
-                        <p class="portfolio-meta">Commission for Cameron</p>
-                        <p class="portfolio-date">7/5/2024</p>
+                        <div class="portfolio-details">
+                            <div class="portfolio-tags">
+                                <span class="text-reveal">
+                                    <span class="text-reveal-content">UI DESIGNING</span>
+                                </span>
+                                <span class="text-reveal">
+                                    <span class="text-reveal-content">SCRIPTING</span>
+                                </span>
+                            </div>
+                            <h3 class="text-split">Circular Amount Selection Slider</h3>
+                            <p>Rounded UI slider used to indicate the amount in a circular manner!</p>
+                            <p class="portfolio-meta">Commission for Cameron</p>
+                            <p class="portfolio-date">7/5/2024</p>
+                        </div>
+                        <div class="hover-3d-shine"></div>
                     </div>
                 </div>
             </div>
@@ -345,7 +419,9 @@ end
             <p class="animate-on-scroll" data-animation="fade-in">Stay Focused on your vision while I bring your Roblox game to life!</p>
             <p class="animate-on-scroll" data-animation="fade-in">Remember, the game is your path to achievement, not the achievement itself!</p>
             
-            <a href="#contact" class="cta-button animate-on-scroll" data-animation="zoom-in">Hire me</a>
+            <a href="#contact" class="cta-button animate-on-scroll magnetic-button ripple-effect" data-animation="zoom-in">
+                <span class="magnetic-button-content">Hire me</span>
+            </a>
             
             <div class="clock">
                 <div class="clock-face">
@@ -416,11 +492,19 @@ end
             </div>
         </footer>
     </div>
+    <!-- Main script files -->
     <script src="script.js"></script>
-    <script src="animations.js"></script>
+    <script src="advanced-animations.js"></script>
     <script>
         // Initialize all Lucide icons
         lucide.createIcons();
     </script>
+    
+    <!-- Link additional stylesheets -->
+    <link rel="stylesheet" href="custom-cursor.css">
+    <link rel="stylesheet" href="advanced-loader.css">
+    <link rel="stylesheet" href="3d-cards.css">
+    <link rel="stylesheet" href="particles-bg.css">
+    <link rel="stylesheet" href="micro-animations.css">
 </body>
 </html>

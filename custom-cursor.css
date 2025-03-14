@@ -1,0 +1,73 @@
+/* Custom cursor styles */
+.cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-outline {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(230, 59, 46, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.cursor-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Cursor states */
+.cursor-hover .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(230, 59, 46, 0.1);
+    border-color: rgba(230, 59, 46, 0.8);
+}
+
+.cursor-click .cursor-dot {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.3;
+}
+
+.cursor-click .cursor-outline {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cursor-hidden .cursor-dot,
+.cursor-hidden .cursor-outline {
+    opacity: 0;
+}
+
+/* Media query to disable custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot, .cursor-outline, .cursor-trail {
+        display: none;
+    }
+}

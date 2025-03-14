@@ -1,0 +1,199 @@
+/* 3D Cards Effect */
+.card-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    perspective: 1000px;
+}
+
+.card-3d-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.card-3d-front,
+.card-3d-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-3d-front {
+    z-index: 2;
+    background-color: var(--light-bg);
+}
+
+.card-3d-back {
+    transform: rotateY(180deg);
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.card-3d:hover {
+    transform: rotateY(180deg);
+}
+
+/* 3D hover effect for services, portfolio, and marketplace cards */
+.hover-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+}
+
+.hover-3d-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.hover-3d-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.hover-3d:hover .hover-3d-shine {
+    opacity: 1;
+}
+
+/* Card layer effects */
+.card-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.card-layer-1 { transform: translateZ(10px); }
+.card-layer-2 { transform: translateZ(20px); }
+.card-layer-3 { transform: translateZ(30px); }
+
+/* Card glow effect */
+.card-glow {
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), #7928ca, #3498db);
+    z-index: -1;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-glow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card-glow:hover::before {
+    opacity: 1;
+    animation: gradientAnimation 3s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Image hover effects */
+.img-hover-zoom {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.img-hover-zoom img {
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.img-hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+.img-hover-slide img {
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.img-hover-slide:hover img {
+    transform: translateX(-5%);
+}
+
+/* Parallax cards */
+.parallax-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+}
+
+.parallax-card-bg {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 0;
+}
+
+.parallax-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Masked image effect */
+.masked-image {
+    position: relative;
+    overflow: hidden;
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,75 C100,90 85,100 75,100 L0,100 Z" fill="white" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,75 C100,90 85,100 75,100 L0,100 Z" fill="white" /></svg>');
+    mask-size: cover;
+    -webkit-mask-size: cover;
+}

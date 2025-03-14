@@ -1,0 +1,309 @@
+/* Microanimations and interactive elements */
+
+/* Magnetic button effect */
+.magnetic-button {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic-button-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Text reveal animations */
+.text-reveal {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.text-reveal-content {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.text-reveal.animated .text-reveal-content {
+    animation: textReveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes textReveal {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Text split animation */
+.text-split {
+    opacity: 0;
+}
+
+.text-split .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.text-split.animated .char {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Marquee animation */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee {
+    display: flex;
+    position: relative;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+    white-space: nowrap;
+    padding: 0 1rem;
+}
+
+/* Interactive buttons */
+.interactive-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.interactive-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transform: translateX(-100%);
+}
+
+.interactive-button:hover::before {
+    animation: shimmerEffect 1.5s infinite;
+}
+
+@keyframes shimmerEffect {
+    100% { transform: translateX(100%); }
+}
+
+/* Animated underline */
+.animated-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+    width: 100%;
+}
+
+/* Text scramble effect */
+.text-scramble {
+    display: inline-block;
+}
+
+/* Animated icon */
+.animated-icon {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.animated-icon:hover {
+    transform: translateY(-5px);
+}
+
+.animated-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(230, 59, 46, 0.2);
+    transition: width 0.3s, height 0.3s;
+}
+
+.animated-icon:hover::after {
+    width: 20px;
+    height: 5px;
+}
+
+/* Liquid button animation */
+.liquid-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.liquid-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.liquid-button:hover::before {
+    height: 100%;
+}
+
+/* Ripple effect on click */
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* Typewriter effect */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+/* Pulse animation */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Focus animation for input fields */
+.focus-animation {
+    position: relative;
+}
+
+.focus-animation input, 
+.focus-animation textarea {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;
+    color: var(--text-color);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.focus-animation input:focus,
+.focus-animation textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(230, 59, 46, 0.2);
+}
+
+.focus-animation label {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    color: #999;
+    pointer-events: none;
+    transition: transform 0.3s, color 0.3s, font-size 0.3s;
+}
+
+.focus-animation input:focus ~ label,
+.focus-animation textarea:focus ~ label,
+.focus-animation input:not(:placeholder-shown) ~ label,
+.focus-animation textarea:not(:placeholder-shown) ~ label {
+    transform: translateY(-24px) translateX(-5px);
+    font-size: 0.75rem;
+    color: var(--primary-color);
+}
+
+/* Number counter animation */
+.counter-animation {
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Progress bar animation */
+.progress-animation {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-animation-fill {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.progress-animation.animated .progress-animation-fill {
+    width: var(--progress-width, 0%);
+}
