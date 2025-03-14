@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REDWASP DEVELOPER | Roblox Studio Expert</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -24,12 +24,27 @@
                 <a href="#contact">CONTACT</a>
             </div>
             <div class="cart-icon">
-                <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#cart"><i data-lucide="shopping-cart"></i></a>
             </div>
         </nav>
 
+        <!-- Loading Animation -->
+        <div class="loader-container">
+            <div class="loader">
+                <div class="loader-logo">
+                    <i data-lucide="bug" size="64"></i>
+                </div>
+                <div class="loader-bar"></div>
+                <p>Loading awesomeness...</p>
+            </div>
+        </div>
+        
+        <!-- Dynamic background elements -->
+        <div class="dynamic-bg-element" style="width: 400px; height: 400px; background: #e63b2e; top: 20%; left: 10%;"></div>
+        <div class="dynamic-bg-element" style="width: 350px; height: 350px; background: #3498db; bottom: 10%; right: 5%;"></div>
+        
         <!-- Hero Section -->
-        <section id="home" class="hero-section">
+        <section id="home" class="hero-section animate-on-scroll" data-animation="fade-in">
             <div class="hero-content">
                 <div class="hero-left">
                     <img src="redwasp-logo.png" alt="REDWASP Logo" class="hero-logo">
@@ -39,19 +54,28 @@
                     <div class="subtitle">SCRIPTER | UI DESIGNER | BUILDER | 3D MODELER</div>
                     
                     <div class="social-icons">
-                        <a href="#" class="social-icon discord"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon discord"><i data-lucide="message-circle"></i></a>
+                        <a href="#" class="social-icon twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-icon youtube"><i data-lucide="youtube"></i></a>
                     </div>
                     
                     <div class="rating">
                         <p>Rated 4.3/5 on TrustPilot</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                        <div class="stars-container">
+                            <div class="stars-background">
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                            </div>
+                            <div class="stars-foreground">
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star-half"></i>
+                            </div>
                         </div>
                     </div>
                     
@@ -63,21 +87,21 @@
         <!-- Statistics Section -->
         <section id="stats" class="stats-section">
             <div class="stat-card">
-                <i class="fas fa-trophy"></i>
+                <i data-lucide="trophy"></i>
                 <h3>5 Years of Experience</h3>
             </div>
             <div class="stat-card">
-                <i class="fas fa-check-circle"></i>
+                <i data-lucide="check-circle"></i>
                 <h3>30+ Projects Completed Successfully</h3>
             </div>
             <div class="stat-card">
-                <i class="fas fa-heart"></i>
+                <i data-lucide="heart"></i>
                 <h3>100% Client Satisfaction Rate</h3>
             </div>
         </section>
 
         <!-- My Services Section -->
-        <section id="services" class="services-section">
+        <section id="services" class="services-section animate-on-scroll" data-animation="fade-in">
             <h2 class="section-title">MY SERVICE</h2>
             
             <div class="service-showcase">
@@ -169,7 +193,7 @@ end
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio-section">
+        <section id="portfolio" class="portfolio-section animate-on-scroll" data-animation="fade-in">
             <h2 class="section-title">CHECK MY PORTFOLIO</h2>
             <p>Take a look of my best visual projects</p>
             
@@ -178,11 +202,11 @@ end
 
         <!-- Explore Portfolio Section -->
         <section id="explore-portfolio" class="explore-portfolio">
-            <h2 class="section-title">EXPLORE MY PORTFOLIO</h2>
-            <p>Browse through a collection of impressive projects I've already created.</p>
+            <h2 class="section-title animate-on-scroll" data-animation="fade-in">EXPLORE MY PORTFOLIO</h2>
+            <p class="animate-on-scroll" data-animation="fade-in">Browse through a collection of impressive projects I've already created.</p>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
+            <div class="portfolio-grid staggered-cards">
+                <div class="portfolio-item staggered-card">
                     <img src="figure-ai.jpg" alt="Figure AI Project">
                     <div class="portfolio-details">
                         <div class="portfolio-tags">
@@ -197,7 +221,7 @@ end
                     </div>
                 </div>
                 
-                <div class="portfolio-item">
+                <div class="portfolio-item staggered-card">
                     <img src="circular-slider.jpg" alt="Circular Slider">
                     <div class="portfolio-details">
                         <div class="portfolio-tags">
@@ -215,10 +239,10 @@ end
 
         <!-- Marketplace Section -->
         <section id="marketplace" class="marketplace-section">
-            <h2 class="section-title">MARKETPLACE</h2>
+            <h2 class="section-title animate-on-scroll" data-animation="fade-in">MARKETPLACE</h2>
             
-            <div class="marketplace-grid">
-                <div class="marketplace-item">
+            <div class="marketplace-grid staggered-cards">
+                <div class="marketplace-item staggered-card">
                     <div class="discount-badge">30% OFF</div>
                     <img src="advanced-fisherman.jpg" alt="Advanced Fisherman Job System">
                     <h3>Advanced Fisherman Job System</h3>
@@ -238,7 +262,7 @@ end
                     </div>
                 </div>
                 
-                <div class="marketplace-item">
+                <div class="marketplace-item staggered-card">
                     <div class="discount-badge">20% OFF</div>
                     <img src="money-simulator.jpg" alt="Money Simulator Pack">
                     <h3>Money Simulator Pack</h3>
@@ -254,17 +278,17 @@ end
             </div>
             
             <div class="pagination">
-                <a href="#" class="prev"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="prev"><i data-lucide="chevron-left"></i></a>
                 <a href="#" class="page active">1</a>
                 <a href="#" class="page">2</a>
                 <a href="#" class="page">3</a>
-                <a href="#" class="next"><i class="fas fa-chevron-right"></i></a>
+                <a href="#" class="next"><i data-lucide="chevron-right"></i></a>
             </div>
         </section>
 
         <!-- Reviews Section -->
-        <section id="reviews" class="reviews-section">
-            <div class="review-card">
+        <section id="reviews" class="reviews-section staggered-cards">
+            <div class="review-card staggered-card">
                 <div class="reviewer">
                     <div class="reviewer-icon">A</div>
                     <div class="reviewer-info">
@@ -282,7 +306,7 @@ end
                 <p class="review-text">"He had helped us with our combat system and even tweaked it a little bit for us. Prec what he did and I will for sure hire him again in the future."</p>
             </div>
             
-            <div class="review-card">
+            <div class="review-card staggered-card">
                 <div class="reviewer">
                     <div class="reviewer-icon">CA</div>
                     <div class="reviewer-info">
@@ -303,13 +327,13 @@ end
 
         <!-- About Me Section -->
         <section id="about" class="about-section">
-            <h2 class="section-title">ABOUT ME</h2>
+            <h2 class="section-title animate-on-scroll" data-animation="fade-in">ABOUT ME</h2>
             
             <div class="about-content">
-                <div class="about-image">
+                <div class="about-image animate-on-scroll" data-animation="fade-left">
                     <img src="redwasp-character.png" alt="REDWASP Character">
                 </div>
-                <div class="about-text">
+                <div class="about-text animate-on-scroll" data-animation="fade-right">
                     <p>I am redwasp Roblox Studio developer with over 5 years of full-time experience since 2018, committed to delivering excellence in every project to exceed your expectations.</p>
                 </div>
             </div>
@@ -317,11 +341,11 @@ end
 
         <!-- Call to Action Section -->
         <section id="cta" class="cta-section">
-            <h2 class="section-title">DON'T WASTE YOUR TIME!</h2>
-            <p>Stay Focused on your vision while I bring your Roblox game to life!</p>
-            <p>Remember, the game is your path to achievement, not the achievement itself!</p>
+            <h2 class="section-title animate-on-scroll" data-animation="fade-in">DON'T WASTE YOUR TIME!</h2>
+            <p class="animate-on-scroll" data-animation="fade-in">Stay Focused on your vision while I bring your Roblox game to life!</p>
+            <p class="animate-on-scroll" data-animation="fade-in">Remember, the game is your path to achievement, not the achievement itself!</p>
             
-            <a href="#contact" class="cta-button">Hire me</a>
+            <a href="#contact" class="cta-button animate-on-scroll" data-animation="zoom-in">Hire me</a>
             
             <div class="clock">
                 <div class="clock-face">
@@ -393,5 +417,10 @@ end
         </footer>
     </div>
     <script src="script.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // Initialize all Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
