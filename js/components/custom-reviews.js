@@ -24,10 +24,10 @@ function replaceReviewsWithCustom() {
     // Review data
     const reviews = [
         {
-            name: 'A',
-            fullName: 'Awesome Pye',
-            date: 'April 17, 2024',
-            content: 'He had helped us with our combat system and even tweaked it a little bit for us. Prec what he did and I will for sure hire him again in the future.'
+            name: 'CFM_SAJ',
+            fullName: 'CFM_SAJ',
+            date: 'September 28, 2024',
+            content: 'First and foremost, professionalism is what retained me. The swift responses gave me hope. And the reassurance helped me to trust and rest till the project was completed in 24 hours. I commissioned a currency system merge with my existing features and a new shop system, and Kool Kid Developer delivered on it. I would 100% suggest it.'
         },
         {
             name: 'CA',
@@ -36,16 +36,16 @@ function replaceReviewsWithCustom() {
             content: 'Great to work with, definitely knows his stuff and very professional. Good speed and great communication. Would highly recommend him for any of your scripting needs.'
         },
         {
-            name: 'CFM_SAJ',
-            fullName: 'CFM_SAJ',
-            date: 'September 28, 2024',
-            content: 'First and foremost, professionalism is what retained me. The swift responses gave me hope. And the reassurance helped me to trust and rest till the project was completed in 24 hours. I commissioned a currency system merge with my existing features and a new shop system, and Kool Kid Developer delivered on it. I would 100% suggest it.'
-        },
-        {
             name: 'BO',
             fullName: 'Boobah',
             date: 'July 3, 2024',
             content: 'Glad I hired him, great to work with and is excited to see my game release which brings me further joy in having him contribute to my game, would 100% recommend.'
+        },
+        {
+            name: 'A',
+            fullName: 'Awesome Pye',
+            date: 'April 17, 2024',
+            content: 'He had helped us with our combat system and even tweaked it a little bit for us. Prec what he did and I will for sure hire him again in the future.'
         }
     ];
     
@@ -66,6 +66,15 @@ function replaceReviewsWithCustom() {
     
     // Add section to reviews section
     reviewsSection.appendChild(customReviewsSection);
+    
+    // Add pause on hover functionality
+    customReviewsContainer.addEventListener('mouseenter', () => {
+        customReviewsContainer.style.animationPlayState = 'paused';
+    });
+    
+    customReviewsContainer.addEventListener('mouseleave', () => {
+        customReviewsContainer.style.animationPlayState = 'running';
+    });
 }
 
 // Create a custom review card
@@ -85,7 +94,7 @@ function createCustomReviewCard(review) {
     // Reviewer icon
     const reviewerIcon = document.createElement('div');
     reviewerIcon.className = 'custom-reviewer-icon';
-    reviewerIcon.textContent = review.name;
+    reviewerIcon.textContent = review.name.substring(0, 2);
     
     // Reviewer info
     const reviewerInfo = document.createElement('div');

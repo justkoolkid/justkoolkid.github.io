@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REDWASP DEVELOPER | Roblox Studio Expert</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Component Stylesheets -->
+    <link rel="stylesheet" href="css/components/custom-review-cards.css">
+    <link rel="stylesheet" href="css/components/particles-bg.css">
+    
+    <!-- Animation Stylesheets -->
+    <link rel="stylesheet" href="css/animations/custom-cursor.css">
+    <link rel="stylesheet" href="css/animations/advanced-loader.css">
+    <link rel="stylesheet" href="css/animations/3d-cards.css">
+    <link rel="stylesheet" href="css/animations/micro-animations.css">
+    <link rel="stylesheet" href="css/animations/card-slider-animation.css">
+    
     <!-- Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
@@ -12,13 +26,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Expert Roblox Studio developer specializing in scripting, UI design, 3D modeling, and game development">
+    <meta name="keywords" content="Roblox, Roblox Studio, LUA, scripting, UI design, 3D modeling, game development">
+    <meta name="author" content="REDWASP Developer">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
         <!-- Navigation -->
         <nav class="main-nav">
             <div class="logo">
-                <a href="#home"><img src="redwasp-logo.png" alt="REDWASP Logo"></a>
+                <a href="#home"><img src="images/redwasp-logo.png" alt="REDWASP Logo"></a>
             </div>
             <div class="nav-links">
                 <a href="#home" class="active">HOME</a>
@@ -101,7 +124,7 @@
         <section id="home" class="hero-section animate-on-scroll" data-animation="fade-in">
             <div class="hero-content">
                 <div class="hero-left">
-                    <img src="redwasp-logo.png" alt="REDWASP Logo" class="hero-logo">
+                    <img src="images/redwasp-logo.png" alt="REDWASP Logo" class="hero-logo">
                 </div>
                 <div class="hero-right">
                     <h1>KOOL KID <span class="highlight">DEVELOPER</span></h1>
@@ -137,6 +160,78 @@
                 </div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/redwasp-logo.png" alt="REDWASP Logo">
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>NAVIGATE</h3>
+                        <ul>
+                            <li><a href="#home">HOME</a></li>
+                            <li><a href="#portfolio">PORTFOLIO</a></li>
+                            <li><a href="#marketplace">MARKETPLACE</a></li>
+                            <li><a href="#blog">BLOG</a></li>
+                            <li><a href="#about">ABOUT ME</a></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                            <li><a href="#membership">MEMBERSHIP</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>SERVICE</h3>
+                        <ul>
+                            <li><a href="#terms">TERMS & CONDITIONS</a></li>
+                            <li><a href="#service">TERMS & SERVICE</a></li>
+                            <li><a href="#cancel">CANCELATION POLICY</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>CONTACT</h3>
+                        <ul>
+                            <li><a href="#discord">DISCORD</a><span>koolkid.dev</span></li>
+                            <li><a href="#twitter">TWITTER</a><span>koolkid_dev</span></li>
+                            <li><a href="#email">EMAIL</a><span>contact@koolkid.dev</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>BECOME A MEMBER</h3>
+                        <p>Get notified about new products and posts plus gain access to special offers available only to members.</p>
+                        
+                        <div class="subscription-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        
+                        <p class="subscription-note">Free of charge. No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Copyright © 2024-2025 by koolkid.dev</p>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Main script files -->
+    <script src="js/script.js"></script>
+    <script src="js/animations/advanced-animations.js"></script>
+    <script src="js/animations/animations.js"></script>
+    <script src="js/components/custom-reviews.js"></script>
+    
+    <script>
+        // Initialize all Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
 
         <!-- Statistics Section -->
         <section id="stats" class="stats-section">
@@ -222,7 +317,7 @@ end
             <div class="offer-cards">
                 <div class="offer-card">
                     <div class="offer-icon">
-                        <i class="fas fa-medal"></i>
+                        <i data-lucide="medal"></i>
                     </div>
                     <h3>High Quality Work</h3>
                     <p>I carefully implement every detail you provide, ensuring your vision is realized.</p>
@@ -230,7 +325,7 @@ end
                 
                 <div class="offer-card">
                     <div class="offer-icon">
-                        <i class="fas fa-tag"></i>
+                        <i data-lucide="tag"></i>
                     </div>
                     <h3>Flexible Pricing</h3>
                     <p>My pricing is flexible, to suit your time and budget preferences.</p>
@@ -238,7 +333,7 @@ end
                 
                 <div class="offer-card">
                     <div class="offer-icon">
-                        <i class="fas fa-gift"></i>
+                        <i data-lucide="gift"></i>
                     </div>
                     <h3>Satisfaction</h3>
                     <p>I offer a 30-days guarantee for any bug fixes and minor adjustments after full payment.</p>
@@ -263,7 +358,7 @@ end
                 <div class="portfolio-item staggered-card hover-3d">
                     <div class="hover-3d-content">
                         <div class="img-hover-zoom">
-                            <img src="figure-ai.jpg" alt="Figure AI Project">
+                            <img src="images/figure-ai.jpg" alt="Figure AI Project">
                         </div>
                         <div class="portfolio-details">
                             <div class="portfolio-tags">
@@ -289,7 +384,7 @@ end
                 <div class="portfolio-item staggered-card hover-3d">
                     <div class="hover-3d-content">
                         <div class="img-hover-zoom">
-                            <img src="circular-slider.jpg" alt="Circular Slider">
+                            <img src="images/circular-slider.jpg" alt="Circular Slider">
                         </div>
                         <div class="portfolio-details">
                             <div class="portfolio-tags">
@@ -318,7 +413,7 @@ end
             <div class="marketplace-grid staggered-cards">
                 <div class="marketplace-item staggered-card">
                     <div class="discount-badge">30% OFF</div>
-                    <img src="advanced-fisherman.jpg" alt="Advanced Fisherman Job System">
+                    <img src="images/advanced-fisherman.jpg" alt="Advanced Fisherman Job System">
                     <h3>Advanced Fisherman Job System</h3>
                     <div class="price">
                         <span class="original-price">$20.00</span>
@@ -328,7 +423,7 @@ end
                 
                 <div class="marketplace-item">
                     <div class="discount-badge">50% OFF</div>
-                    <img src="camping-pack.jpg" alt="Camping Pack">
+                    <img src="images/camping-pack.jpg" alt="Camping Pack">
                     <h3>Camping Pack</h3>
                     <div class="price">
                         <span class="original-price">$9.99</span>
@@ -338,7 +433,7 @@ end
                 
                 <div class="marketplace-item staggered-card">
                     <div class="discount-badge">20% OFF</div>
-                    <img src="money-simulator.jpg" alt="Money Simulator Pack">
+                    <img src="images/money-simulator.jpg" alt="Money Simulator Pack">
                     <h3>Money Simulator Pack</h3>
                     <div class="price">
                         <span class="original-price">$9.99</span>
@@ -361,42 +456,8 @@ end
         </section>
 
         <!-- Reviews Section -->
-        <section id="reviews" class="reviews-section staggered-cards">
-            <div class="review-card staggered-card">
-                <div class="reviewer">
-                    <div class="reviewer-icon">A</div>
-                    <div class="reviewer-info">
-                        <h4>Awesome Pye</h4>
-                        <p>Reviewed on April 17, 2024</p>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"He had helped us with our combat system and even tweaked it a little bit for us. Prec what he did and I will for sure hire him again in the future."</p>
-            </div>
-            
-            <div class="review-card staggered-card">
-                <div class="reviewer">
-                    <div class="reviewer-icon">CA</div>
-                    <div class="reviewer-info">
-                        <h4>Cameron</h4>
-                        <p>Reviewed on July 5, 2024</p>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Great to work with, definitely knows his stuff and very professional. Good speed and great communication. Would highly recommend him for any of your scripting needs."</p>
-            </div>
+        <section id="reviews" class="reviews-section">
+            <!-- This section will be populated by JavaScript -->
         </section>
 
         <!-- About Me Section -->
@@ -405,7 +466,7 @@ end
             
             <div class="about-content">
                 <div class="about-image animate-on-scroll" data-animation="fade-left">
-                    <img src="redwasp-character.png" alt="REDWASP Character">
+                    <img src="images/redwasp-character.png" alt="REDWASP Character">
                 </div>
                 <div class="about-text animate-on-scroll" data-animation="fade-right">
                     <p>I am Kool Kid Roblox Studio developer with over 5 years of full-time experience since 2018, committed to delivering excellence in every project to exceed your expectations.</p>
@@ -433,84 +494,3 @@ end
                 <div class="time">10:00 PM</div>
             </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="main-footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="redwasp-logo.png" alt="REDWASP Logo">
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>NAVIGATE</h3>
-                        <ul>
-                            <li><a href="#home">HOME</a></li>
-                            <li><a href="#portfolio">PORTFOLIO</a></li>
-                            <li><a href="#marketplace">MARKETPLACE</a></li>
-                            <li><a href="#blog">BLOG</a></li>
-                            <li><a href="#about">ABOUT ME</a></li>
-                            <li><a href="#contact">CONTACT</a></li>
-                            <li><a href="#membership">MEMBERSHIP</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>SERVICE</h3>
-                        <ul>
-                            <li><a href="#terms">TERMS & CONDITIONS</a></li>
-                            <li><a href="#service">TERMS & SERVICE</a></li>
-                            <li><a href="#cancel">CANCELATION POLICY</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>CONTACT</h3>
-                        <ul>
-                            <li><a href="#discord">DISCORD</a><span>koolkid.dev</span></li>
-                            <li><a href="#twitter">TWITTER</a><span>koolkid_dev</span></li>
-                            <li><a href="#email">EMAIL</a><span>contact@koolkid.dev</span></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>BECOME A MEMBER</h3>
-                        <p>Get notified about new products and posts plus gain access to special offers available only to members.</p>
-                        
-                        <div class="subscription-form">
-                            <input type="email" placeholder="Your email address">
-                            <button type="submit">Subscribe</button>
-                        </div>
-                        
-                        <p class="subscription-note">Free of charge. No spam. Unsubscribe anytime.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>Copyright © 2024-2025 by koolkid.dev</p>
-            </div>
-        </footer>
-    </div>
-    <!-- Main script files -->
-    <script src="script.js"></script>
-    <script src="advanced-animations.js"></script>
-    <script src="reviews-animation.js"></script>
-    <script src="rtl-animation.js"></script>
-    <script src="custom-reviews.js"></script>
-    <script>
-        // Initialize all Lucide icons
-        lucide.createIcons();
-    </script>
-    
-    <!-- Link additional stylesheets -->
-    <link rel="stylesheet" href="custom-cursor.css">
-    <link rel="stylesheet" href="advanced-loader.css">
-    <link rel="stylesheet" href="3d-cards.css">
-    <link rel="stylesheet" href="particles-bg.css">
-    <link rel="stylesheet" href="micro-animations.css">
-    <link rel="stylesheet" href="card-slider-animation.css">
-    <link rel="stylesheet" href="enhanced-rtl-animation.css">
-    <link rel="stylesheet" href="custom-review-cards.css">
-</body>
-</html>
