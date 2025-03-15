@@ -38,6 +38,7 @@
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: drawLogo 3s ease forwards;
+    stroke: #0055ff;
 }
 
 @keyframes drawLogo {
@@ -80,6 +81,11 @@
     margin-bottom: 0.5rem;
     opacity: 0;
     animation: fadeIn 1s ease 2s forwards;
+    background: linear-gradient(45deg, #0055ff, #00a8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0, 85, 255, 0.3);
 }
 
 .loading-subtitle {
@@ -95,6 +101,10 @@
     font-weight: 700;
     opacity: 0;
     transform: translateY(20px);
+    background: linear-gradient(45deg, #0055ff, #00a8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Progress bar styles */
