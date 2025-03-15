@@ -1,0 +1,111 @@
+/* Custom Review Cards matching the screenshot */
+
+.custom-reviews-section {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.custom-reviews-container {
+    display: flex;
+    gap: 30px;
+    animation: customRTL 30s linear infinite;
+    width: max-content;
+}
+
+.custom-reviews-container:hover {
+    animation-play-state: paused;
+}
+
+@keyframes customRTL {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 15px));
+    }
+}
+
+.custom-review-card {
+    flex: 0 0 auto;
+    width: 400px;
+    background-color: #0e1127;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.custom-review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 85, 255, 0.3);
+}
+
+.custom-reviewer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.custom-reviewer-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #c22a84;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
+
+.custom-reviewer-info h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.custom-reviewer-info p {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.custom-review-text {
+    font-size: 16px;
+    line-height: 1.6;
+    font-style: italic;
+    color: white;
+}
+
+.custom-loading-circle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    border-top-color: #ff3366;
+    border-radius: 50%;
+    animation: customLoadingSpin 1s linear infinite;
+}
+
+@keyframes customLoadingSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
