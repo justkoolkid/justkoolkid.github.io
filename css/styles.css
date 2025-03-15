@@ -522,7 +522,6 @@ h1 .highlight {
     max-width: 1200px;
     margin: 6rem auto;
     padding: 0 2rem;
-    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
 }
